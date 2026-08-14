@@ -6,13 +6,13 @@ if(!isset($_GET['cnes'])) {
 	$msg["msg"] = "Parâmetro 'cnes' não encontrado";	
 } else {
 	try {
-		$options = array( 'location' => 'https://servicoshm.saude.gov.br/cnes/EstabelecimentoSaudeService/v1r0', 
+		$options = array( 'location' => 'https://servicos.saude.gov.br/cnes/EstabelecimentoSaudeService/v1r0', 
 						  'encoding' => 'utf-8', 
 						  'soap_version' => SOAP_1_2,
 						  'connection_timeout' => 180,
 						  'trace'        => 1, 
 						  'exceptions'   => 1 );
-		$client = new SoapClient('https://servicoshm.saude.gov.br/cnes/EstabelecimentoSaudeService/v1r0?wsdl', $options);   
+		$client = new SoapClient('https://servicos.saude.gov.br/cnes/EstabelecimentoSaudeService/v1r0?wsdl', $options);   
 		$client->__setSoapHeaders(soapClientWSSecurityHeader('CNES.PUBLICO', 'cnes#2015public'));
 		$arguments = array( 'est' => array(
 								'FiltroPesquisaEstabelecimentoSaude' => array(
